@@ -385,7 +385,7 @@ bypass_teleport(teleport_table.spawn)
 end)
 Section:NewKeybind("ZOM-ESP-BIND", "KeybindInfo", Enum.KeyCode.V, function()
     -- Get the Zombies folder
-local zombiesFolder = workspace.Ignore.Zombies
+local zombiesFolder = Workspace.Ignore.Zombies
 
 -- Get all the descendants in the Zombies folder
 local zombiesDescendants = zombiesFolder:GetDescendants()
