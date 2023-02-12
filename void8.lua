@@ -8,7 +8,7 @@ local watermark = library:Watermark("LKG | 60 fps | v4.20 | dev")
 
 local main = library:Load{
     Name = "LKG",
-    SizeX = 550,
+    SizeX = 600,
     SizeY = 650,
     Theme = "Midnight",
     Extension = "json", -- config file extension
@@ -219,6 +219,7 @@ end))
         print("Button clicked")
     end
 }
+
 
 local tab = main:Tab("Aimbot")
 
@@ -555,6 +556,75 @@ section:Button{
         end
 end
 }
+-- library.Extension = "txt" (config file extension)
+-- library.Folder = "config folder name"
+
+local Players = game:GetService("Players")
+local mouse = Players.LocalPlayer:GetMouse()
+local originalCameraSubject = workspace.CurrentCamera.CameraSubject
+local camera = workspace.CurrentCamera
+local localPlayer = Players.LocalPlayer
+
+local function findPlayerByName(name)
+	for _, player in pairs(Players:GetPlayers()) do
+		if player.Name == name then
+			return player
+		end
+	end
+	return nil
+end
+
+local tab = main:Tab("Spectate")
+local section = tab:Section{
+    Name = "Section",
+    Side = "Left"
+}
+local playerNames = {}
+for _, player in pairs(Players:GetPlayers()) do
+	table.insert(playerNames, player.Name)
+end
+local dropdown = section:Dropdown{
+    Name = "Player Selector",
+    Content = playerNames,
+    Flag = "Player Selection",
+    Callback = function(selectedPlayerName)
+		local selectedPlayer = findPlayerByName(selectedPlayerName)
+		if selectedPlayer and selectedPlayer.Character and selectedPlayer.Character:FindFirstChild("Humanoid") then
+			workspace.CurrentCamera.CameraSubject = selectedPlayer.Character.Humanoid
+			print("Success: Camera view changed to player " .. selectedPlayerName)
+		else
+			print("Failure: Player not found or no humanoid character")
+		end
+    end
+}
+
+
+local tab = main:Tab("Teleport")
+
+local section = tab:Section{
+Name = "Section",
+Side = "Right"
+}
+
+local playerList = game.Players:GetPlayers()
+local playerNames = {}
+for i, player in pairs(playerList) do
+table.insert(playerNames, player.Name)
+end
+
+local dropdown = section:Dropdown{
+Name = "Player Dropdown",
+Content = playerNames,
+Flag = "Player Dropdown",
+Callback = function(option)
+local selectedPlayer = game.Players:FindFirstChild(option)
+local localPlayer = game.Players.LocalPlayer
+local playerCharacter = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local rootPart = playerCharacter:FindFirstChild("HumanoidRootPart")
+rootPart.CFrame = selectedPlayer.Character.HumanoidRootPart.CFrame
+end
+}
+
 --library:Close()
 --library:Unload()
 Humanoid:Destroy()
