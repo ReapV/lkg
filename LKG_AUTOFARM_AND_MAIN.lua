@@ -449,14 +449,12 @@ game.Players.PlayerAdded:Connect(function(player)
 			end
 		end
 	end
-	end)
+end)
 
 	-- Example usage: addHighlightedModel("BaldZombie")
 	-- Example usage: removeHighlightedModel("BaldZombie")
 
 	-- Check if the model is visible every 0.1
-end)
-    print("yes")
 end)
 local Tab = Window:NewTab("AutoFarm")
 local Section = Tab:NewSection("AutoFarm")
@@ -513,7 +511,6 @@ while true do
 end
 end
 end)
-
 
 
 end)--- PcallFunction
