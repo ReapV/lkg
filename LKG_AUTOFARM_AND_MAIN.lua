@@ -406,7 +406,7 @@ for i, descendant in pairs(zombiesDescendants) do
 			highlight.Parent = descendant
 		end
 		highlight.Enabled = true
-		highlight.FillColor = Color3.fromRGB(1, 0, 0)
+		highlight.FillColor = Color3.fromRGB(255, 255, 255)
 	end
 end
 
@@ -449,6 +449,7 @@ game.Players.PlayerAdded:Connect(function(player)
 			end
 		end
 	end
+	end)
 
 	-- Example usage: addHighlightedModel("BaldZombie")
 	-- Example usage: removeHighlightedModel("BaldZombie")
@@ -511,9 +512,6 @@ while true do
     wait()
 end
 end
-	rconsoleprint("!Press Again When Stopped")
-	rconsoleprint("Click Spawn On Hellhound")
-	rconsoleprint("AutoFarmLoaded")
 end)
 
 
