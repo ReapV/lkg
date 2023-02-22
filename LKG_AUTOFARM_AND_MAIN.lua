@@ -64,7 +64,7 @@ pcall(function()
     
     end)
     Section:NewSlider("Speed[GunRed]", "SpeedHack-[gun]", 500, 0, function(wal) -- 500 (MaxValue) | 0 (MinValue)
-        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local Framework = ReplicatedStorage:WaitForChild("Framework")
     local Guns = Framework:WaitForChild("Guns")
     
@@ -86,6 +86,10 @@ pcall(function()
     
     end)
     Section:NewButton("Recoil", "ButtonInfo", function()
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local Framework = ReplicatedStorage:WaitForChild("Framework")
+    local Guns = Framework:WaitForChild("Guns")
+        
         for _, folder in pairs(Guns:GetChildren()) do
         local Module = folder:FindFirstChild("Module")
         if Module then
@@ -110,8 +114,57 @@ pcall(function()
         print("Clicked")
     end)
     
-    
-    
+    local Tab = Window:NewTab("Spoof")
+    local Section = Tab:NewSection("Mike Spoof")
+
+
+    local weapon1 = game.Players.LocalPlayer.Character.CharStats.GunInventory.Gun1
+    local weapon2 = game.Players.LocalPlayer.Character.CharStats.GunInventory.Gun2
+    local knife = game.Players.LocalPlayer.Character.CharStats.Knife
+
+    Section:NewTextBox("gun1", "SpoofGuns", function(txt)
+        weapon1.Value = txt
+	print(txt)
+end)
+    Section:NewTextBox("gun2", "Spoof", function(txt)
+        weapon2.Value = txt
+	print(txt)
+end)
+    Section:NewTextBox("Knifes Oar, Bowie, Classic", "SpoofGuns", function(txt)
+        knife.Value = txt
+    end)
+
+    Section:NewLabel("Perks")
+    Section:NewButton("QuickRevive", "ButtonInfo", function()
+        local Quick = Instance.new("StringValue")
+        Quick.Name = "QuickRevive"
+        Quick.Parent = game.Players.LocalPlayer.Character.CharStats.Perks
+        print("Clicked")
+    end)
+    Section:NewButton("DobuleTap", "ButtonInfo", function()
+        local Double = Instance.new("StringValue")
+        Double.Name = "DoubleTap"
+        Double.Parent = game.Players.LocalPlayer.Character.CharStats.Perks
+        print("Clicked")
+    end)
+    Section:NewButton("Juggrnog", "ButtonInfo", function()
+        local Juggernog = Instance.new("StringValue")
+        Juggernog.Name = "Juggernog"
+        Juggernog.Parent = game.Players.LocalPlayer.Character.CharStats.Perks
+        print("Clicked")
+    end)
+    Section:NewButton("SpeedCola", "ButtonInfo", function()
+        local SpeedCola = Instance.new("StringValue")
+        SpeedCola.Name = "SpeedCola"
+        SpeedCola.Parent = game.Players.LocalPlayer.Character.CharStats.Perks
+        print("Clicked")
+    end)
+    Section:NewButton("MuleKick", "ButtonInfo", function()
+        local MuleKick = Instance.new("StringValue")
+        MuleKick.Name = "MuleKick"
+        MuleKick.Parent = game.Players.LocalPlayer.Character.CharStats.Perks
+        print("Clicked")
+    end)
     local Tab = Window:NewTab("Misc")
     local Section = Tab:NewSection("Misc")
     Section:NewButton("PowerBox", "ButtonInfo", function()
