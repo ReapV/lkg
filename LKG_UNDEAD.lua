@@ -289,6 +289,59 @@ Section:NewSlider("RPM", "FireRate", 850, -500, function(rpm) -- 500 (MaxValue) 
     
         print("Clicked")
     end)
+    
+        local Tab = Window:NewTab("Spoof")
+    local Section = Tab:NewSection("Mike Spoof")
+
+
+    local weapon1 = game.Players.LocalPlayer.Character.CharStats.GunInventory.Gun1
+    local weapon2 = game.Players.LocalPlayer.Character.CharStats.GunInventory.Gun2
+    local knife = game.Players.LocalPlayer.Character.CharStats.Knife
+
+    Section:NewTextBox("gun1", "SpoofGuns", function(txt)
+        weapon1.Value = txt
+	print(txt)
+end)
+    Section:NewTextBox("gun2", "Spoof", function(txt)
+        weapon2.Value = txt
+	print(txt)
+end)
+    Section:NewTextBox("Knifes Oar, Bowie", "SpoofGuns", function(txt)
+        knife.Value = txt
+    end)
+
+    Section:NewLabel("Perks")
+    Section:NewButton("QuickRevive", "ButtonInfo", function()
+        local Quick = Instance.new("StringValue")
+        Quick.Name = "QuickRevive"
+        Quick.Parent = game.Players.LocalPlayer.Character.CharStats.Perks
+        print("Clicked")
+    end)
+    Section:NewButton("DobuleTap", "ButtonInfo", function()
+        local Double = Instance.new("StringValue")
+        Double.Name = "DoubleTap"
+        Double.Parent = game.Players.LocalPlayer.Character.CharStats.Perks
+        print("Clicked")
+    end)
+    Section:NewButton("Juggrnog", "ButtonInfo", function()
+        local Juggernog = Instance.new("StringValue")
+        Juggernog.Name = "Juggernog"
+        Juggernog.Parent = game.Players.LocalPlayer.Character.CharStats.Perks
+        print("Clicked")
+    end)
+    Section:NewButton("SpeedCola", "ButtonInfo", function()
+        local SpeedCola = Instance.new("StringValue")
+        SpeedCola.Name = "SpeedCola"
+        SpeedCola.Parent = game.Players.LocalPlayer.Character.CharStats.Perks
+        print("Clicked")
+    end)
+    Section:NewButton("MuleKick", "ButtonInfo", function()
+        local MuleKick = Instance.new("StringValue")
+        MuleKick.Name = "MuleKick"
+        MuleKick.Parent = game.Players.LocalPlayer.Character.CharStats.Perks
+        print("Clicked")
+    end)
+    
 local Tab = Window:NewTab("Visual")
 local Section = Tab:NewSection("Visual")
 
