@@ -1,0 +1,8 @@
+getgenv().Undead = false
+getgenv().Giant = true
+
+if Giant == Giant then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ReapV/lkg/main/LKG/Giant.lua", true))()
+elseif Undead == Undead then
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/ReapV/lkg/main/LKG/undead.lua", true))()
+end
